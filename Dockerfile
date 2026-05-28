@@ -5,4 +5,4 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-CMD ["chainlit", "run", "main.py"]
+CMD ["chainlit", "run", "main.py", "--host", "0.0.0.0"]
