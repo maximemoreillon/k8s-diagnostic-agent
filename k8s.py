@@ -5,4 +5,5 @@ try:
 except config.ConfigException:
     config.load_kube_config()
 
-v1 = client.CoreV1Api()
+core_v1 = client.CoreV1Api()
+apps_v1 = client.AppsV1Api()
