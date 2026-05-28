@@ -15,7 +15,15 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+      - uses: docker/metadata-action@v5
+        id: meta
+        with:
+          images: ${{ secrets.DOCKERHUB_USERNAME }}/k8s-diagnostic-agent
+          tags: |
+            type=raw,value=latest
+            type=sha
+
       - uses: docker/build-push-action@v6
         with:
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/k8s-diagnostic-agent:latest
+          tags: ${{ steps.meta.outputs.tags }}
