@@ -1,0 +1,4 @@
+kubernetes
+langchain
+langchain-openai
+python-dotenv
