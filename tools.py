@@ -38,3 +38,12 @@ def describe_pod(name: str, namespace: str) -> str:
     ]
 
     return json.dumps({"conditions": conditions, "containers": containers}, default=str)
+
+
+@tool
+def get_pod_logs(name: str, namespace: str, tail: int = 100) -> str:
+    """Get logs of a pod"""
+
+    logs = v1.read_namespaced_pod_log(name=name, namespace=namespace, tail_lines=tail)
+
+    return logs

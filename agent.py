@@ -1,11 +1,11 @@
 from langchain.agents import create_agent
-from tools import list_namespaces, list_pods, describe_pod
+from tools import list_namespaces, list_pods, describe_pod, get_pod_logs
 from dotenv import load_dotenv
 
 load_dotenv()
 
 
-tools = [list_namespaces, list_pods, describe_pod]
+tools = [list_namespaces, list_pods, describe_pod, get_pod_logs]
 
 agent = create_agent(
     "openai:gpt-5.4",
